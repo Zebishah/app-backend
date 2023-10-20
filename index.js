@@ -10,7 +10,7 @@ app.use(cors({
     credentials: true
 }));
 app.use(express.json())
-const port = 5000;
+const port = process.env.PORT || 5000;
 connectDB();
 let host = process.env.REACT_APP_API_HOST
 app.get('/', (req, res) => {
