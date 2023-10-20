@@ -26,7 +26,7 @@ router.post(
                   return res.status(400).json({ errors: result.array() });
             } else {
                   try {
-                        let user = await User.findOne({ Email: req.body.Email });
+                        let user = await User.findOne({ Email: req.body.Email }).maxTimeMS(20000);;
                         if (user) {
 
                               res.status(400).send({ success: false, error: "User with that email already exsist..." });
@@ -81,7 +81,7 @@ router.post(
                         let p_success = null;
                         let e_success = null;
                         let { Email, Password } = req.body;
-                        let user = await User.findOne({ Email: Email });
+                        let user = await User.findOne({ Email: Email }).maxTimeMS(20000);;
 
                         if (!user) {
                               console.log("!user")
@@ -135,7 +135,7 @@ router.get(
 
 
                   console.log("hye")
-                  let user = await User.find();
+                  let user = await User.find().maxTimeMS(20000);;
                   res.send(user);
 
             } catch (error) {
