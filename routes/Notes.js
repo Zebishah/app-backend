@@ -1,48 +1,48 @@
 const express = require('express');
-const { query, validationResult, body } = require("express-validator");
+const { validationResult, body } = require("express-validator");
 const fetchUser = require('../middlewares/fetchuser');
 const notes = require('../models/notes');
 const router = express.Router();
 
-router.get('/fetchNote', fetchUser, async (req, res) => {
-     try {
-          let userId = req.user.id;
-          let fetched_Notes = await notes.find({ user: userId });
-          res.send(fetched_Notes);
-     } catch (error) {
-          console.log("Error occurred in fetching notes: " + error);
-          res.status(500).send("An issue occurred while fetching notes.");
-     }
-})
+// router.get('/fetchNote', fetchUser, async (req, res) => {
+//      try {
+//           let userId = req.user.id;
+//           let fetched_Notes = await notes.find({ user: userId });
+//           res.send(fetched_Notes);
+//      } catch (error) {
+//           console.log("Error occurred in fetching notes: " + error);
+//           res.status(500).send("An issue occurred while fetching notes.");
+//      }
+// })
 
-router.post('/addNote', fetchUser, [
-     body("title", "Title must not be that much smaller").isLength({ max: 20 }),
-     body("Description", "Description must not be that much smaller").isLength({ max: 256 }),
-], async (req, res) => {
-     try {
-          const result = validationResult(req);
+// router.post('/addNote', fetchUser, [
+//      body("title", "Title must not be that much smaller").isLength({ max: 20 }),
+//      body("Description", "Description must not be that much smaller").isLength({ max: 256 }),
+// ], async (req, res) => {
+//      try {
+//           const result = validationResult(req);
 
-          if (!result.isEmpty()) {
-               return res.status(400).json({ errors: result.array() });
-          } else {
+//           if (!result.isEmpty()) {
+//                return res.status(400).json({ errors: result.array() });
+//           } else {
 
-               userId = await users.id;
-               console.log(userId)
-               let { title, Description, tags } = req.body;
+//                userId = await users.id;
+//                console.log(userId)
+//                let { title, Description, tags } = req.body;
 
-               let note = await new notes({
-                    title, Description, tags, user: userId
-               })
-               let savedNote = await note.save();
-               res.json(savedNote);
-          }
+//                let note = await new notes({
+//                     title, Description, tags, user: userId
+//                })
+//                let savedNote = await note.save();
+//                res.json(savedNote);
+//           }
 
 
-     } catch (error) {
-          console.log("Error occurred in Adding notes: " + error);
-          res.status(500).send("An issue occurred while adding notes.");
-     }
-})
+//      } catch (error) {
+//           console.log("Error occurred in Adding notes: " + error);
+//           res.status(500).send("An issue occurred while adding notes.");
+//      }
+// })
 
 // router.put('/updateNote/:id', fetchUser, [
 //      body("title", "Title must not be that much smaller").isLength({ max: 20 }),
