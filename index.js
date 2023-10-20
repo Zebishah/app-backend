@@ -4,7 +4,7 @@ const app = express();
 require('dotenv').config();
 var cors = require('cors')
 app.use(cors({
-    origin: "https://notiaa.vercel.app", // Replace with your actual frontend domain
+    origin: "http://localhost:3000", // Replace with your actual frontend domain
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
