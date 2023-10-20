@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     res.json({ message: 'API is up and running' });
 });
 app.use('/api/auth', require('./routes/auth'))
-app.use('/api/notes', require('./routes/notes'))
+// app.use('/api/notes', require('./routes/notes'))
 app.listen(port, () => {
     console.log("Server is Listening at Port" + host);
 })
