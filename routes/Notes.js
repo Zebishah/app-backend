@@ -1,5 +1,5 @@
 const express = require('express');
-const { validationResult, body } = require("express-validator");
+const { query, validationResult, body } = require("express-validator");
 const fetchUser = require('../middlewares/fetchuser');
 const notes = require('../models/notes');
 const router = express.Router();
