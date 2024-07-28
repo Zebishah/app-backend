@@ -4,7 +4,7 @@ var jwt = require("jsonwebtoken");
 let jwt_secret = process.env.JWT_SECRET;
 
 let fetchUser = (req, res, next) => {
-    console.log("getchuser")
+
     try {
         // let auth_token=req.body.auth_token; its for sending token in body 
         let auth_token = req.header("auth-token");
