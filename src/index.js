@@ -5,7 +5,7 @@ require("dotenv").config();
 const cors = require("cors");
 app.use(
   cors({
-    origin: "http://localhost:3000", // Replace with your actual frontend domain
+    origin: "https://app-frontend-nine.vercel.app", // Replace with your actual frontend domain
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
