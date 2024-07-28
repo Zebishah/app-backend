@@ -20,7 +20,5 @@ app.get("/", (req, res) => {
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/Notes", require("./routes/Notes"));
 app.listen(port, () => {
-  console.log("Server is Listening at Port" + host);
+  console.log("Server is Listening at Port" + port);
 });
-
-export default app;
