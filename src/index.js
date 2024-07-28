@@ -22,3 +22,4 @@ app.use("/api/Notes", require("./routes/Notes"));
 app.listen(port, () => {
   console.log("Server is Listening at Port" + port);
 });
+export default app;
